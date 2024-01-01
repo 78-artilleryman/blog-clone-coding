@@ -9,6 +9,7 @@ function ProfilePage() {
   return (
     <>
     <Header/>
+    <Profile></Profile>
     <PostList hasNavigation={false}/>
     <Footer/>
     </>
