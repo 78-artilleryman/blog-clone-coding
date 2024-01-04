@@ -157,6 +157,10 @@ footer a:hover
   color: gray;
 }
 
+.post_text_prewrap{
+  white-space: pre-wrap;
+}
+
 
 
 /* PostDetail */
@@ -190,6 +194,14 @@ footer a:hover
 
 .post__detail .post__text{
   padding: 20px 0;
+}
+
+.post_no-post{
+  padding: 24px;
+  text-align: center;
+  color: gray;
+  border: 1px solid;
+  border-radius: 20px;
 }
 
 

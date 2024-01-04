@@ -10,7 +10,7 @@ function ProfilePage() {
     <>
     <Header/>
     <Profile></Profile>
-    <PostList hasNavigation={false}/>
+    <PostList hasNavigation={false} defaultTab='my'/>
     <Footer/>
     </>
    
