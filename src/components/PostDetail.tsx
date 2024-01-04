@@ -47,6 +47,9 @@ function PostDetail() {
                 <div className='post__date'>{post?.createdAt}</div>
               </div>
               <div className='post__utils-box'>
+                {post?.category &&(
+                   <div className='post_category'>{post?.category}</div>
+                )}
                 <div className='post__delete' role='presentation' onClick={handleDelete}>삭제</div>
                 <div className='post__edit'>
                   <Link to={`/posts/edit/${post?.id}`}>수정</Link>

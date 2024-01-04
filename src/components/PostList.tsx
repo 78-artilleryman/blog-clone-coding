@@ -8,10 +8,10 @@ import { toast } from 'react-toastify';
 
 interface PostListProps{
   hasNavigation?: boolean;
-  defaultTab?: TabType;
+  defaultTab?: TabType | CategoryType;
 }
 
-type TabType = "all" | "my"
+
 
 export interface PostProps{
   id?: string;
@@ -21,15 +21,22 @@ export interface PostProps{
   content: string;
   createdAt: string;
   uid: string;
+  category?: CategoryType;
 }
+type TabType = "all" | "my"; 
+
+export type CategoryType = "Frontend" | "Backend" | "Web" | "Native";
+export const CATEGORIES: CategoryType[] = [
+  "Frontend", 
+  "Backend" ,
+  "Web" ,
+  "Native"
+]
 
 function PostList({hasNavigation = true, defaultTab = "all"} : PostListProps) {
-  const [activeTap, setActiveTab] = useState<TabType>(defaultTab);
+  const [activeTap, setActiveTab] = useState<TabType | CategoryType>(defaultTab);
   const [posts, setPosts] = useState<PostProps[]>([]);
   const {user} = useContext(AuthContext)
-
-  console.log(posts)
-
 
   const getPosts = async () => {
    
@@ -46,10 +53,18 @@ function PostList({hasNavigation = true, defaultTab = "all"} : PostListProps) {
         where('uid', "==", user.uid),
         orderBy("createdAt", "asc")
         );
-    }else{
+    }
+    else if(activeTap === "all"){
       //모든 글 보여주기
       postQuery = query(postRef, orderBy("createdAt", "asc"));
+    }else{
+      postQuery = query(
+        postRef, 
+        where('category', "==", activeTap),
+        orderBy("createdAt", "asc")
+        );
     }
+    
     const datas = await getDocs(postQuery);
 
     datas?.forEach((doc) => {
@@ -70,7 +85,7 @@ function PostList({hasNavigation = true, defaultTab = "all"} : PostListProps) {
 
   useEffect(() => {
     getPosts();
-  },[])
+  },[activeTap])
 
   return (
     <>
@@ -86,7 +101,16 @@ function PostList({hasNavigation = true, defaultTab = "all"} : PostListProps) {
           onClick={() => setActiveTab("my")} 
           className={activeTap === "my" ? 'post__navigation--active' : ""}>
           나의 글
-          </div>
+        </div>
+          {CATEGORIES?.map((category) => (
+             <div
+              key={category} 
+              role="presentation"
+              onClick={() => setActiveTab(category)} 
+              className={activeTap === category ? 'post__navigation--active' : ""}>
+              {category}
+             </div>
+          ))}
       </div>
     )}
       <div className='post-list'>
