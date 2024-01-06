@@ -5,6 +5,7 @@ import {deleteDoc, doc, getDoc} from "firebase/firestore"
 import { db } from 'firebaseApp';
 import Loader from './Loader';
 import { toast } from 'react-toastify';
+import Comment from './Comment';
 
 function PostDetail() {
   const [post, setPost] = useState<PostProps | null>(null)
@@ -39,6 +40,7 @@ function PostDetail() {
     <>
       <div className='post__detail'>
         {post ? (
+          <>
           <div className='post__box'>
           <div className='post__title'>{post?.title}</div>
           <div className='post__profile-box'>
@@ -57,7 +59,8 @@ function PostDetail() {
               </div>
               <div className='post__text post_text_prewrap'>{post?.content}</div>
         </div>
-    
+        <Comment/>
+        </>
         ) : <Loader/>}
       </div>
     </>

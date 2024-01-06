@@ -432,7 +432,7 @@ input:checked + .carousel__slide-container .nav label {
 }
 
 .form .form_block{
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
 }
 
@@ -528,13 +528,15 @@ input:checked + .carousel__slide-container .nav label {
 .dark a,
 .dark .form label,
 .dark .post__delete,
-.dark .post__title
+.dark .post__title,
 .dark .profile__logout,
 .dark .post__navigation--active,
 .dark .form_title,
 .dark .post__author-name,
 .dark .footer_theme_btn,
-.dark .profile__name{
+.dark .profile__name,
+.comments_form label,
+.comments_list{
   color: white;
 }
 
@@ -543,7 +545,9 @@ input:checked + .carousel__slide-container .nav label {
 .dark .post__text,
 .dark .profile__email,
 .dark .post__date,
-.dark .form_block{
+.dark .form_block
+.dark .comment_date,
+.dark .comment_delete{
   color: lightgray;
 }
 
@@ -557,3 +561,98 @@ input:checked + .carousel__slide-container .nav label {
 }
 
 
+/* comment */
+
+.comments{
+  width: 100%;
+}
+
+.comments_form label{
+  font-weight: 600;
+  display: block;
+  margin: 10px 0;
+}
+
+.comments_form textarea{
+  min-height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  border: 1px solid gray;
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 10px 0 ;
+}
+
+.comments_form .form_btn_submit{
+  width: 100px;
+  height: 36px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.form_block_revers{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.comments_form .form_btn_submit:hover,
+.comments_form .form_btn_submit:focus{
+  background-color: #1945a4;
+}
+
+.comments_list{
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.comment_box{
+  padding: 12px 0px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.comment_profile_box{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.comment_email{
+  font-weight: 500;
+}
+
+.comment_date{
+  color: gray;
+}
+
+.comment_delete{
+  color: gray;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.dark .comment_delete:hover,
+.dark .comment_delete:focus{
+  color: white ;
+}
+
+.comment_delete:hover,
+.comment_delete:focus{
+  color: black;
+}
+
+.comment_text{
+  font-size: 12px;
+  padding-top: 4px;
+}
