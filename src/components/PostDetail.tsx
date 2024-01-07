@@ -59,7 +59,7 @@ function PostDetail() {
               </div>
               <div className='post__text post_text_prewrap'>{post?.content}</div>
         </div>
-        <Comment/>
+        <Comment post={post} getpost={getpost}/>
         </>
         ) : <Loader/>}
       </div>

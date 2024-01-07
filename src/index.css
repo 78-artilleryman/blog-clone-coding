@@ -545,7 +545,7 @@ input:checked + .carousel__slide-container .nav label {
 .dark .post__text,
 .dark .profile__email,
 .dark .post__date,
-.dark .form_block
+.dark .form_block,
 .dark .comment_date,
 .dark .comment_delete{
   color: lightgray;
@@ -629,6 +629,7 @@ input:checked + .carousel__slide-container .nav label {
 
 .comment_email{
   font-weight: 500;
+  color: #111827;
 }
 
 .comment_date{
@@ -655,4 +656,10 @@ input:checked + .carousel__slide-container .nav label {
 .comment_text{
   font-size: 12px;
   padding-top: 4px;
+  color: #111827;
+}
+
+.dark .comment_text,
+.dark .comment_email{
+  color: white
 }
